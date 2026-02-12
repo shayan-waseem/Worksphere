@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane prefWidth="1280" prefHeight="720" 
+           style="-fx-background-image: url('/worksphere/view/bg.jpg'); -fx-background-size: cover; -fx-background-position: center;" 
+           xmlns:fx="http://javafx.com/fxml/1" 
+           fx:controller="worksphere.controller.LoginController">
+    
+    <Region style="-fx-background-color: rgba(0, 0, 0, 0.3);" />
+
+    <HBox maxWidth="1000" maxHeight="600" 
+          style="-fx-background-color: white; -fx-background-radius: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 40, 0, 0, 20);"
+          StackPane.alignment="CENTER">
+        
+        <VBox prefWidth="500" alignment="CENTER_LEFT" spacing="20">
+            <padding><Insets left="60" right="60"/></padding>
+            
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Circle radius="8" fill="#0ea5e9"/>
+                <Label text="WorkSphere" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0f172a; -fx-font-family: 'Segoe UI Semibold';"/>
+                <VBox.margin><Insets bottom="40"/></VBox.margin>
+            </HBox>
+
+            <VBox spacing="5">
+                <Label text="Welcome Back" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1e293b; -fx-font-family: 'Segoe UI Bold';"/>
+                <Label text="Please sign in to continue" style="-fx-font-size: 13px; -fx-text-fill: #64748b; -fx-font-family: 'Segoe UI';"/>
+                <VBox.margin><Insets bottom="10"/></VBox.margin>
+            </VBox>
+            
+            <VBox spacing="15">
+                <TextField fx:id="emailField" promptText="Email Address" 
+                           style="-fx-background-color: #f8fafc; -fx-background-radius: 10; -fx-padding: 14; -fx-border-color: #e2e8f0; -fx-border-radius: 10;"/>
+                
+                <TextField fx:id="usernameField" promptText="Username" 
+                           style="-fx-background-color: #f8fafc; -fx-background-radius: 10; -fx-padding: 14; -fx-border-color: #e2e8f0; -fx-border-radius: 10;"/>
+                
+                <PasswordField fx:id="passwordField" promptText="Password" 
+                               style="-fx-background-color: #f8fafc; -fx-background-radius: 10; -fx-padding: 14; -fx-border-color: #e2e8f0; -fx-border-radius: 10;"/>
+                
+                <Button text="Sign In" onAction="#handleLogin" maxWidth="Infinity" prefHeight="50" 
+                        style="-fx-background-color: #0f172a; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-size: 14px;">
+                    <VBox.margin><Insets top="10"/></VBox.margin>
+                </Button>
+            </VBox>
+        </VBox>
+
+        <VBox prefWidth="500" alignment="CENTER_LEFT" 
+              style="-fx-background-color: linear-gradient(to bottom right, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95)); -fx-background-radius: 0 30 30 0;">
+            <padding><Insets left="50" right="50"/></padding>
+            
+            <Label text="OFFICE" 
+                   style="-fx-font-size: 48px; -fx-font-weight: 900; -fx-text-fill: white; -fx-font-family: 'Arial Black';"/>
+            <Label text="MANAGEMENT" 
+                   style="-fx-font-size: 48px; -fx-font-weight: 900; -fx-text-fill: white; -fx-font-family: 'Arial Black';"/>
+            <Label text="SYSTEM" 
+                   style="-fx-font-size: 48px; -fx-font-weight: 900; -fx-text-fill: #38bdf8; -fx-font-family: 'Arial Black';"/>
+            
+            <Separator maxWidth="100" style="-fx-opacity: 0.3;">
+                <VBox.margin><Insets top="20"/></VBox.margin>
+            </Separator>
+        </VBox>
+    </HBox>
+</StackPane>

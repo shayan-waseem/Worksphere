@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="worksphere.controller.EmployeeDashboardController" prefWidth="1280" prefHeight="720">
+    <ImageView fx:id="bgView" preserveRatio="false">
+        <image><Image url="@bg.jpg" /></image>
+    </ImageView>
+
+    <BorderPane style="-fx-background-color: rgba(15, 23, 42, 0.6);"> 
+        <left>
+            <VBox prefWidth="280" spacing="15" style="-fx-background-color: rgba(30, 41, 59, 0.9); -fx-background-radius: 0 30 30 0;">
+                <padding><Insets top="40" right="20" bottom="30" left="25"/></padding>
+                
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <StackPane>
+                        <Circle radius="24" fill="#334155"/>
+                        <Label fx:id="avatarLabel" text="??" style="-fx-text-fill: #38bdf8; -fx-font-weight: bold; -fx-font-size: 16;"/>
+                        <Circle radius="7" fill="#10b981" StackPane.alignment="BOTTOM_RIGHT" stroke="#1e293b" strokeWidth="2"/>
+                    </StackPane>
+                    <VBox>
+                        <Label fx:id="userNameLabel" text="Loading..." style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;"/>
+                        <Label text="Employee Portal" style="-fx-text-fill: #94a3b8; -fx-font-size: 11;"/>
+                    </VBox>
+                </HBox>
+
+                <Separator opacity="0.1"><padding><Insets top="10" bottom="10"/></padding></Separator>
+
+                <VBox spacing="8" VBox.vgrow="ALWAYS">
+                    <Button text="🏠  Dashboard Home" onAction="#showDashboard" maxWidth="Infinity" alignment="BASELINE_LEFT"
+                            style="-fx-background-color: rgba(56, 189, 248, 0.1); -fx-text-fill: #38bdf8; -fx-padding: 12; -fx-background-radius: 10; -fx-cursor: hand;"/>
+                    <Button text="📅  Attendance &amp; Tasks" onAction="#showAttendance" maxWidth="Infinity" alignment="BASELINE_LEFT"
+                            style="-fx-background-color: transparent; -fx-text-fill: #cbd5e1; -fx-padding: 12; -fx-cursor: hand;"/>
+                    <Button text="📝  Leave Application" onAction="#showLeave" maxWidth="Infinity" alignment="BASELINE_LEFT"
+                            style="-fx-background-color: transparent; -fx-text-fill: #cbd5e1; -fx-padding: 12; -fx-cursor: hand;"/>
+                </VBox>
+
+                <VBox spacing="8" style="-fx-background-color: rgba(16, 185, 129, 0.1); -fx-padding: 15; -fx-background-radius: 15; -fx-border-color: rgba(16, 185, 129, 0.2);">
+                    <Label text="NET SALARY (MONTHLY)" style="-fx-text-fill: #10b981; -fx-font-size: 10; -fx-font-weight: bold;"/>
+                    <HBox alignment="CENTER_LEFT">
+                        <Label fx:id="salaryLabel" text="••••••" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="👁" onAction="#handleViewSalary" style="-fx-background-color: transparent; -fx-text-fill: #94a3b8; -fx-cursor: hand; -fx-font-size: 14;"/>
+                    </HBox>
+                </VBox>
+
+                <Button text="🚪 Logout" onAction="#handleLogout" maxWidth="Infinity" alignment="BASELINE_LEFT"
+                        style="-fx-background-color: transparent; -fx-text-fill: #f87171; -fx-padding: 12; -fx-cursor: hand; -fx-font-weight: bold;"/>
+            </VBox>
+        </left>
+
+        <center>
+            <VBox spacing="0">
+                <HBox alignment="CENTER_LEFT" prefHeight="80" style="-fx-padding: 0 40 0 40; -fx-background-color: rgba(15, 23, 42, 0.3);">
+                    <VBox alignment="CENTER_LEFT">
+                        <Label text="Workspace Console" style="-fx-text-fill: white; -fx-font-size: 22; -fx-font-weight: bold;"/>
+                        <Label text="Manage your daily productivity" style="-fx-text-fill: #64748b; -fx-font-size: 12;"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="searchField" promptText="Search tasks..." style="-fx-background-color: rgba(255,255,255,0.05); -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 8 15; -fx-pref-width: 250;"/>
+                    <Region prefWidth="20"/>
+                    <Label fx:id="timeLabel" text="00:00:00 AM" style="-fx-text-fill: #38bdf8; -fx-font-family: 'Monospaced'; -fx-font-size: 16;"/>
+                </HBox>
+                
+                <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent;">
+                    <VBox fx:id="mainContainer" spacing="30" style="-fx-padding: 30 40 40 40;">
+                        </VBox>
+                </ScrollPane>
+            </VBox>
+        </center>
+    </BorderPane>
+</StackPane>

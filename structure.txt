@@ -1,0 +1,108 @@
+Folder PATH listing
+Volume serial number is 4463-6F22
+C:.
+|   src.zip
+|   structure.txt
+|   
++---.vscode
+|       launch.json
+|       settings.json
+|       
++---bin
+|   \---worksphere
+|       |   AttendancePage.class
+|       |   WorkSphereApp$1.class
+|       |   WorkSphereApp.class
+|       |   
+|       +---controller
+|       |       AttendanceController.class
+|       |       LoginController.class
+|       |       
+|       +---model
+|       |       AttendanceRecord.class
+|       |       Employee.class
+|       |       
+|       +---Utils
+|       |       TimeUtil.class
+|       |       
+|       \---view
+|               bg.jpg
+|               style.css
+|               
++---legal
+|   +---javafx.base
+|   |       ADDITIONAL_LICENSE_INFO
+|   |       ASSEMBLY_EXCEPTION
+|   |       LICENSE
+|   |       
+|   +---javafx.controls
+|   |       ADDITIONAL_LICENSE_INFO
+|   |       ASSEMBLY_EXCEPTION
+|   |       LICENSE
+|   |       
+|   +---javafx.fxml
+|   |       ADDITIONAL_LICENSE_INFO
+|   |       ASSEMBLY_EXCEPTION
+|   |       LICENSE
+|   |       
+|   +---javafx.graphics
+|   |       ADDITIONAL_LICENSE_INFO
+|   |       ASSEMBLY_EXCEPTION
+|   |       jpeg_fx.md
+|   |       LICENSE
+|   |       mesa3d.md
+|   |       
+|   +---javafx.media
+|   |       ADDITIONAL_LICENSE_INFO
+|   |       ASSEMBLY_EXCEPTION
+|   |       directshow.md
+|   |       glib.md
+|   |       gstreamer.md
+|   |       libffi.md
+|   |       LICENSE
+|   |       
+|   +---javafx.swing
+|   |       ADDITIONAL_LICENSE_INFO
+|   |       ASSEMBLY_EXCEPTION
+|   |       LICENSE
+|   |       
+|   \---javafx.web
+|           ADDITIONAL_LICENSE_INFO
+|           ASSEMBLY_EXCEPTION
+|           icu_web.md
+|           libxml2.md
+|           libxslt.md
+|           LICENSE
+|           webkit.md
+|           
++---lib
+|       javafx-swt.jar
+|       javafx.base.jar
+|       javafx.controls.jar
+|       javafx.fxml.jar
+|       javafx.graphics.jar
+|       javafx.media.jar
+|       javafx.properties
+|       javafx.swing.jar
+|       javafx.web.jar
+|       
+\---src
+    \---worksphere
+        |   AttendancePage.java
+        |   WorkSphereApp.java
+        |   
+        +---controller
+        |       AttendanceController.java
+        |       LoginController.java
+        |       
+        +---model
+        |       AttendanceRecord.java
+        |       Employee.java
+        |       
+        +---Utils
+        |       TimeUtil.java
+        |       
+        \---view
+                bg.jpg
+                style.css
+                

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+
+<StackPane prefWidth="1280" prefHeight="720" 
+           style="-fx-background-image: url('/worksphere/view/bg.jpg'); -fx-background-size: cover; -fx-background-position: center;" 
+           xmlns:fx="http://javafx.com/fxml/1" 
+           fx:controller="worksphere.controller.FaceRecognitionController">
+    
+    <Region style="-fx-background-color: rgba(0, 0, 0, 0.3);" />
+
+    <HBox>
+        <VBox prefWidth="260" style="-fx-background-color: #0f172a;">
+            <padding><Insets top="40" left="25" right="25"/></padding>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Circle radius="8" fill="#0ea5e9"/>
+                <Label text="WorkSphere" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: 'Segoe UI Semibold';"/>
+            </HBox>
+
+            <VBox spacing="15" VBox.vgrow="ALWAYS">
+                <VBox.margin><Insets top="50"/></VBox.margin>
+                
+                <Button text="Dashboard" maxWidth="Infinity" alignment="BASELINE_LEFT" 
+                        style="-fx-background-color: transparent; -fx-text-fill: #94a3b8; -fx-font-size: 14; -fx-cursor: hand;"/>
+                
+                <Button text="Leave Application" maxWidth="Infinity" alignment="BASELINE_LEFT" 
+                        style="-fx-background-color: transparent; -fx-text-fill: #94a3b8; -fx-font-size: 14; -fx-cursor: hand;"/>
+                
+                <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-background-color: rgba(14, 165, 233, 0.2); -fx-background-radius: 10; -fx-padding: 12;">
+                    <Circle radius="3" fill="#0ea5e9"/>
+                    <Label text="Attendance" style="-fx-text-fill: #0ea5e9; -fx-font-weight: bold;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+
+        <VBox HBox.hgrow="ALWAYS" alignment="CENTER">
+            <padding><Insets left="40" right="40"/></padding>
+
+            <HBox spacing="40" alignment="CENTER" maxWidth="950" maxHeight="500" 
+                  style="-fx-background-color: rgba(255, 255, 255, 0.85); -fx-background-radius: 30; -fx-border-color: rgba(255,255,255,0.4); -fx-border-width: 1.5;">
+                <effect><DropShadow color="rgba(0,0,0,0.2)" radius="30" /></effect>
+                <padding><Insets top="30" bottom="30" left="30" right="30"/></padding>
+
+                <VBox alignment="CENTER">
+                    <StackPane style="-fx-background-color: black; -fx-background-radius: 20; -fx-overflow: hidden; -fx-border-color: #0ea5e9; -fx-border-width: 1; -fx-border-radius: 20;">
+                        <ImageView fx:id="cameraView" fitWidth="480" fitHeight="360" preserveRatio="true" />
+                        <Rectangle fx:id="scanLine" width="480" height="2" fill="#0ea5e9" opacity="0.6" StackPane.alignment="TOP_CENTER">
+                            <effect><DropShadow color="#0ea5e9" radius="10" /></effect>
+                        </Rectangle>
+                    </StackPane>
+                </VBox>
+
+                <VBox prefWidth="350" spacing="20" alignment="CENTER_LEFT">
+                    <VBox spacing="5">
+                        <Label text="Facial Verification" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+                        <Label text="Mark your daily attendance" style="-fx-font-size: 14; -fx-text-fill: #64748b;"/>
+                    </VBox>
+                    
+                    <HBox fx:id="statusBox" spacing="10" alignment="CENTER_LEFT" 
+                          style="-fx-background-color: #f0fdf4; -fx-background-radius: 12; -fx-padding: 15; -fx-border-color: #bbf7d0;">
+                        <Circle radius="4" fill="#22c55e"/>
+                        <Label fx:id="statusLabel" text="System ready for scan" style="-fx-text-fill: #166534; -fx-font-weight: bold;"/>
+                    </HBox>
+
+                    <Button fx:id="actionBtn" text="MARK ATTENDANCE" onAction="#handleCapture" maxWidth="Infinity" prefHeight="50" 
+                            style="-fx-background-color: #0f172a; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-cursor: hand; -fx-font-size: 13;">
+                        <effect><DropShadow color="rgba(15, 23, 42, 0.3)" radius="15" offsetY="5" /></effect>
+                    </Button>
+                    
+                    <Button text="Go Back" onAction="#handleCancel" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #64748b; -fx-cursor: hand;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </HBox>
+</StackPane>

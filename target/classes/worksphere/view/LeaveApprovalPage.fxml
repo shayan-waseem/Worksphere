@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="worksphere.controller.LeaveApprovalController" 
+           prefWidth="1200" prefHeight="700" 
+           style="-fx-background-color: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);">
+    
+    <BorderPane>
+        <center>
+            <HBox spacing="30" alignment="CENTER">
+                <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+                
+                <VBox spacing="25" HBox.hgrow="ALWAYS">
+                    <VBox spacing="5">
+                        <Label text="Leave Management" style="-fx-font-size: 32px; -fx-font-weight: 800; -fx-text-fill: white;"/>
+                        <Label text="System Overview: Review and track employee leave history" style="-fx-text-fill: #94a3b8; -fx-font-size: 14px;"/>
+                    </VBox>
+
+                    <VBox VBox.vgrow="ALWAYS" style="-fx-background-color: #1e293b; -fx-background-radius: 16; -fx-border-color: #334155; -fx-border-width: 1; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 20, 0, 0, 10);">
+                        <HBox spacing="15" style="-fx-padding: 20 25; -fx-background-color: #334155; -fx-background-radius: 16 16 0 0;">
+                            <Label text="EMPLOYEE" prefWidth="200" style="-fx-text-fill: #cbd5e1; -fx-font-weight: 900; -fx-font-size: 11px;"/>
+                            <Label text="TYPE" prefWidth="100" style="-fx-text-fill: #cbd5e1; -fx-font-weight: 900; -fx-font-size: 11px;"/>
+                            <Label text="DATE" prefWidth="120" style="-fx-text-fill: #cbd5e1; -fx-font-weight: 900; -fx-font-size: 11px;"/>
+                            <Label text="REASON" HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-text-fill: #cbd5e1; -fx-font-weight: 900; -fx-font-size: 11px;"/>
+                            <Label text="STATUS" prefWidth="120" alignment="CENTER" style="-fx-text-fill: #cbd5e1; -fx-font-weight: 900; -fx-font-size: 11px;"/>
+                            <Label text="ACTION" prefWidth="100" alignment="CENTER" style="-fx-text-fill: #cbd5e1; -fx-font-weight: 900; -fx-font-size: 11px;"/>
+                        </HBox>
+                        
+                        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent; -fx-padding: 10 15;">
+                            <VBox fx:id="rowsContainer" spacing="12"/>
+                        </ScrollPane>
+                    </VBox>
+                </VBox>
+
+                <VBox spacing="25" prefWidth="320" 
+                      style="-fx-background-color: #1e293b; -fx-background-radius: 16; -fx-padding: 30; -fx-border-color: #334155; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 15, 0, 0, 5);">
+                    
+                    <Label text="Navigation &amp; Filters" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                    
+                    <VBox spacing="10">
+                        <Label text="Search Employee" style="-fx-text-fill: #94a3b8; -fx-font-size: 12px;"/>
+                        <TextField fx:id="searchName" promptText="Enter name..." 
+                                   style="-fx-background-color: #0f172a; -fx-text-fill: white; -fx-border-color: #334155; -fx-background-radius: 8; -fx-padding: 10;"/>
+                    </VBox>
+                    
+                    <VBox spacing="10">
+                        <Label text="Category" style="-fx-text-fill: #94a3b8; -fx-font-size: 12px;"/>
+                        <ComboBox fx:id="filterType" promptText="Select Type" maxWidth="Infinity" 
+                                  style="-fx-background-color: #0f172a; -fx-border-color: #334155;"/>
+                    </VBox>
+
+                    <Region VBox.vgrow="ALWAYS" />
+
+                    <Button text="Apply Search" onAction="#handleSearch" maxWidth="Infinity"
+                            style="-fx-background-color: #6366f1; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 14; -fx-background-radius: 10; -fx-cursor: hand;"/>
+                    
+                    <Button text="Reset View" onAction="#resetFilters" maxWidth="Infinity"
+                            style="-fx-background-color: transparent; -fx-text-fill: #94a3b8; -fx-border-color: #475569; -fx-border-radius: 10; -fx-cursor: hand;"/>
+                </VBox>
+            </HBox>
+        </center>
+    </BorderPane>
+</StackPane>

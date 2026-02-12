@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane fx:id="mainRoot" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="worksphere.controller.AdminDashboardController"
+            style="-fx-background-color: #0f172a;" prefHeight="720.0" prefWidth="1280.0">
+    
+    <left>
+        <VBox prefWidth="260" spacing="8" style="-fx-background-color: #1e293b; -fx-background-radius: 0 30 30 0;">
+            <padding><Insets bottom="25" left="20" right="20" top="40" /></padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <StackPane>
+                        <Circle radius="18" fill="#38bdf8"/>
+                        <Label text="W" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"/>
+                    </StackPane>
+                    <Label text="WorkSphere" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: 800;" />
+                    <VBox.margin><Insets bottom="40"/></VBox.margin>
+                </HBox>
+                
+                <Label text="MANAGEMENT" style="-fx-text-fill: #64748b; -fx-font-size: 10px; -fx-font-weight: 900; -fx-letter-spacing: 1px;">
+                    <VBox.margin><Insets left="10" bottom="10"/></VBox.margin>
+                </Label>
+
+                <Button fx:id="btnDashboard" maxWidth="Infinity" alignment="BASELINE_LEFT" text="  📊  Dashboard" onAction="#handleDashboard" 
+                        style="-fx-background-color: #38bdf8; -fx-text-fill: white; -fx-background-radius: 12; -fx-padding: 12; -fx-font-weight: bold; -fx-cursor: hand;" />
+                
+                <Button maxWidth="Infinity" alignment="BASELINE_LEFT" text="  👥  Teams" onAction="#handleTeams" 
+                        style="-fx-background-color: transparent; -fx-text-fill: #94a3b8; -fx-padding: 12; -fx-cursor: hand;" />
+                
+                <Button maxWidth="Infinity" alignment="BASELINE_LEFT" text="  💰  Payroll" onAction="#handleSalary" 
+                        style="-fx-background-color: transparent; -fx-text-fill: #94a3b8; -fx-padding: 12; -fx-cursor: hand;" />
+                
+                <Button maxWidth="Infinity" alignment="BASELINE_LEFT" text="  📅  Attendance" onAction="#handleAttendance" 
+                        style="-fx-background-color: transparent; -fx-text-fill: #94a3b8; -fx-padding: 12; -fx-cursor: hand;" />
+                
+                <Button maxWidth="Infinity" alignment="BASELINE_LEFT" text="  📄  Leave Requests" onAction="#handleLeave" 
+                        style="-fx-background-color: transparent; -fx-text-fill: #94a3b8; -fx-padding: 12; -fx-cursor: hand;" />
+                
+                <Region VBox.vgrow="ALWAYS" />
+                
+                <Button maxWidth="Infinity" text="Logout" onAction="#handleLogout" 
+                        style="-fx-background-color: #ef444422; -fx-text-fill: #f87171; -fx-font-weight: bold; -fx-background-radius: 12; -fx-padding: 12; -fx-border-color: #ef4444; -fx-border-radius: 12; -fx-border-width: 0.5; -fx-cursor: hand;" />
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-background-color: #f1f5f9; -fx-background-radius: 30 0 0 30;">
+            <clip>
+                <Rectangle fx:id="contentClip" arcWidth="60" arcHeight="60" />
+            </clip>
+            <children>
+                <ImageView fx:id="bgView" fitHeight="720" fitWidth="1020" preserveRatio="false" />
+
+                <VBox spacing="0">
+                    <HBox alignment="CENTER_LEFT" prefHeight="80" spacing="20" style="-fx-background-color: rgba(255,255,255,0.9); -fx-padding: 0 40 0 40; -fx-background-radius: 30 0 0 0;">
+                        <effect><DropShadow color="#00000011" radius="10" offsetY="2"/></effect>
+                        <children>
+                            <VBox alignment="CENTER_LEFT">
+                                <Label fx:id="lblGreeting" text="Good Morning, Admin" style="-fx-font-weight: 800; -fx-text-fill: #1e293b; -fx-font-size: 18px;"/>
+                                <Label fx:id="lblClock" text="--:--:--" style="-fx-text-fill: #64748b; -fx-font-size: 13px;"/>
+                            </VBox>
+                            <Region HBox.hgrow="ALWAYS" />
+                            
+                            <Button fx:id="btnTheme" text="🌙" onAction="#toggleTheme" 
+                                    style="-fx-background-color: #f1f5f9; -fx-background-radius: 20; -fx-cursor: hand; -fx-font-size: 16px;"/>
+
+                            <TextField promptText="Search analytics..." prefWidth="250" 
+                                       style="-fx-background-color: #f1f5f9; -fx-background-radius: 15; -fx-padding: 10 15; -fx-border-color: #e2e8f0; -fx-border-radius: 15;"/>
+                            
+                            <HBox alignment="CENTER" spacing="15">
+                                <StackPane style="-fx-cursor: hand;">
+                                    <Circle radius="20" fill="#f1f5f9"/>
+                                    <Label text="🔔" style="-fx-font-size: 16px;"/>
+                                    <Circle radius="5" fill="#ef4444" StackPane.alignment="TOP_RIGHT">
+                                        <StackPane.margin><Insets top="5" right="5"/></StackPane.margin>
+                                    </Circle>
+                                </StackPane>
+                                <Separator orientation="VERTICAL" prefHeight="25"/>
+                                <Circle radius="20" fill="#38bdf8"/>
+                            </HBox>
+                        </children>
+                    </HBox>
+
+                    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent;">
+                        <VBox fx:id="dashboardOverview" spacing="30">
+                            <padding><Insets bottom="40" left="40" right="40" top="30" /></padding>
+                            <children>
+                                <HBox spacing="25">
+                                    <children>
+                                        <VBox fx:id="card1" prefWidth="320" prefHeight="160" spacing="15" style="-fx-background-color: white; -fx-background-radius: 25; -fx-padding: 25; -fx-cursor: hand;">
+                                            <effect><DropShadow color="#00000008" radius="20" offsetY="10"/></effect>
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="15"><Circle radius="22" fill="#0ea5e911"/><Label text="Total Personnel" style="-fx-font-weight: bold; -fx-text-fill: #64748b;" /></HBox>
+                                                <Label text="1,089" style="-fx-font-size: 38px; -fx-font-weight: 900; -fx-text-fill: #0ea5e9;" />
+                                                <Label text="↑ 12% from last month" style="-fx-text-fill: #10b981; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="card2" prefWidth="320" prefHeight="160" spacing="15" style="-fx-background-color: white; -fx-background-radius: 25; -fx-padding: 25; -fx-cursor: hand;">
+                                            <effect><DropShadow color="#00000008" radius="20" offsetY="10"/></effect>
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="15"><Circle radius="22" fill="#8b5cf611"/><Label text="Active Projects" style="-fx-font-weight: bold; -fx-text-fill: #64748b;" /></HBox>
+                                                <Label text="43" style="-fx-font-size: 38px; -fx-font-weight: 900; -fx-text-fill: #8b5cf6;" />
+                                                <Label text="8 pending approval" style="-fx-text-fill: #64748b; -fx-font-size: 12px;"/>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="card3" prefWidth="320" prefHeight="160" spacing="15" style="-fx-background-color: #1e293b; -fx-background-radius: 25; -fx-padding: 25; -fx-cursor: hand;">
+                                            <effect><DropShadow color="#00000015" radius="20" offsetY="10"/></effect>
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="15"><Circle radius="22" fill="#38bdf822"/><Label text="System Health" style="-fx-font-weight: bold; -fx-text-fill: #94a3b8;" /></HBox>
+                                                <Label text="98.2%" style="-fx-font-size: 38px; -fx-font-weight: 900; -fx-text-fill: white;" />
+                                                <ProgressBar progress="0.98" prefWidth="250" style="-fx-accent: #38bdf8;"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="25" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <VBox prefWidth="450" style="-fx-background-color: white; -fx-background-radius: 25; -fx-padding: 25;">
+                                            <effect><DropShadow color="#00000005" radius="20" offsetY="5"/></effect>
+                                            <Label text="Attendance Overview" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+                                            <PieChart fx:id="attendancePieChart" prefHeight="300" />
+                                        </VBox>
+
+                                        <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 25; -fx-padding: 25;">
+                                            <effect><DropShadow color="#00000005" radius="20" offsetY="5"/></effect>
+                                            <HBox alignment="CENTER_LEFT">
+                                                <Label text="Live Activity Feed" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+                                                <Region HBox.hgrow="ALWAYS"/>
+                                                <Label text="● Real-time" style="-fx-text-fill: #10b981; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                                            </HBox>
+                                            <Region prefHeight="20"/>
+                                            <ScrollPane fitToWidth="true" prefHeight="280" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent;">
+                                                <VBox fx:id="vboxActivityFeed" spacing="12">
+                                                    </VBox>
+                                            </ScrollPane>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </ScrollPane>
+                </VBox>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

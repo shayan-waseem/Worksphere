@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="worksphere.controller.SalaryManagementController">
+    <Region style="-fx-background-color: linear-gradient(to bottom right, #1e293b, #334155);"/>
+    
+    <BorderPane style="-fx-background-color: transparent;">
+        <center>
+            <VBox spacing="20">
+                <padding><Insets top="25" right="40" bottom="25" left="40"/></padding>
+                
+                <HBox alignment="CENTER_LEFT">
+                    <VBox>
+                        <Label text="Payroll Management" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                        <Label text="Financial Overview &amp; Disbursements" style="-fx-font-size: 14px; -fx-text-fill: #00d4aa;"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button text="Generate All Slips" onAction="#handleGenerateSlip" 
+                            style="-fx-background-color: #00d4aa; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12 25; -fx-background-radius: 10; -fx-cursor: hand;"/>
+                </HBox>
+
+                <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: rgba(255,255,255,0.05); -fx-padding: 15; -fx-background-radius: 15;">
+                    <TextField fx:id="searchField" promptText="Search employee..." 
+                               style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: #94a3b8; -fx-background-radius: 8; -fx-pref-width: 300; -fx-padding: 8;"/>
+                    <ComboBox fx:id="monthFilter" promptText="Filter by Month"
+                              style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-background-radius: 8; -fx-pref-width: 150;"/>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button text="Export CSV" onAction="#handleExport"
+                            style="-fx-background-color: transparent; -fx-text-fill: #cbd5e1; -fx-border-color: #cbd5e1; -fx-border-radius: 8; -fx-padding: 8 15; -fx-cursor: hand;"/>
+                </HBox>
+
+                <HBox spacing="20" alignment="CENTER">
+                    <VBox prefWidth="280" style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 15; -fx-padding: 20; -fx-border-color: rgba(255,255,255,0.2); -fx-border-radius: 15;">
+                        <Label text="Total Net Payroll" style="-fx-text-fill: #cbd5e1; -fx-font-size: 14px;"/>
+                        <Label fx:id="totalPayrollLabel" text="Rs. 0" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+                    </VBox>
+                    <VBox prefWidth="280" style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 15; -fx-padding: 20; -fx-border-color: rgba(255,255,255,0.2); -fx-border-radius: 15;">
+                        <Label text="Total Deductions" style="-fx-text-fill: #cbd5e1; -fx-font-size: 14px;"/>
+                        <Label fx:id="totalDeductionLabel" text="Rs. 0" style="-fx-text-fill: #fb7185; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+                    </VBox>
+                    <VBox prefWidth="280" style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 15; -fx-padding: 20; -fx-border-color: rgba(255,255,255,0.2); -fx-border-radius: 15;">
+                        <Label text="Processed Employees" style="-fx-text-fill: #cbd5e1; -fx-font-size: 14px;"/>
+                        <Label fx:id="employeeCountLabel" text="0" style="-fx-text-fill: #00d4aa; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+                    </VBox>
+                </HBox>
+
+                <VBox VBox.vgrow="ALWAYS" style="-fx-background-color: #f8fafc; -fx-background-radius: 20; -fx-padding: 0; -fx-border-color: #e2e8f0; -fx-border-width: 1;">
+                    <HBox spacing="20" style="-fx-background-color: #f1f5f9; -fx-padding: 18; -fx-background-radius: 20 20 0 0; -fx-border-color: #e2e8f0; -fx-border-width: 0 0 1 0;">
+                        <Label text="Employee Name" prefWidth="200" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <Label text="Attendance" prefWidth="120" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <Label text="Basic Pay" prefWidth="120" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <Label text="Deductions" prefWidth="120" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <Label text="Net Salary" prefWidth="120" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <Label text="Action" prefWidth="100" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                    </HBox>
+                    
+                    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background: white;">
+                        <VBox fx:id="salaryRowsContainer" spacing="2" style="-fx-padding: 10; -fx-background-color: white;"/>
+                    </ScrollPane>
+                </VBox>
+            </VBox>
+        </center>
+    </BorderPane>
+</StackPane>

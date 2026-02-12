@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="worksphere.controller.TeamManagementController" 
+           style="-fx-background-color: #f1f5f9;"> <Region maxHeight="250" StackPane.alignment="TOP_CENTER" 
+            style="-fx-background-color: linear-gradient(to right, #1e293b, #334155);"/>
+
+    <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;">
+        <VBox spacing="30">
+            <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+
+            <HBox alignment="CENTER_LEFT">
+                <VBox spacing="5">
+                    <Label text="Team Management" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                    <Label text="Overview of departmental progress and tasking." style="-fx-font-size: 14; -fx-text-fill: #cbd5e1;"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button text="+ Create New Team" onAction="#handleAddTask" 
+                        style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 25; -fx-background-radius: 8; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 2);"/>
+            </HBox>
+
+            <FlowPane fx:id="teamFlowPane" hgap="25" vgap="25" prefWrapLength="1000">
+                </FlowPane>
+
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 15, 0, 0, 10);">
+                <Label text="Assignment Tracker" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+                <TableView fx:id="taskTable" prefHeight="350" style="-fx-background-color: transparent; -fx-selection-bar: #f1f5f9;">
+                    <columns>
+                        <TableColumn fx:id="colTeam" text="Team" prefWidth="150" />
+                        <TableColumn fx:id="colTask" text="Description" prefWidth="400" />
+                        <TableColumn fx:id="colPriority" text="Priority" prefWidth="120" />
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="150" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</StackPane>
